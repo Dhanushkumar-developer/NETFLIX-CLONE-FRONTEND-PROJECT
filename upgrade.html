@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOTNET SUBSCRIPTION</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #141414;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #e50914;
+        }
+
+        .plans {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: #222;
+            padding: 25px;
+            width: 220px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border: 2px solid #e50914;
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        button {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff1f2d;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 20px;
+            color: #00ff99;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="index.html" style="color:#aaa; text-decoration:none; display:block; margin-bottom:15px;">&larr; Back to Home</a>
+        <h1>Choose Your Plan</h1>
+
+        <div class="plans">
+
+
+            <div class="card">
+                <h2>Basic</h2>
+                <p>₹199 / month</p>
+                <button onclick="selectPlan('Basic')">Select</button>
+            </div>
+
+
+
+            <div class="card">
+                <h2>Premium</h2>
+                <p>₹649 / month</p>
+                <button onclick="selectPlan('Premium')">Select</button>
+            </div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>function selectPlan(plan) {
+            document.getElementById("result").innerHTML =
+                `You selected the <b>${plan}</b> plan 🎉`;
+        }</script>
+</body>
+
+</html>

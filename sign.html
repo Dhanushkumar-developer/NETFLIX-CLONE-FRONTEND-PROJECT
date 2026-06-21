@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOTNET SIGN IN</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #141414;
+            color: white;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: red;
+        }
+
+        input {
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: none;
+            padding: 12px;
+            background: #333;
+            color: white;
+        }
+
+        button {
+            cursor: pointer;
+            width: 50%;
+            border-radius: 4px;
+            border: none;
+            padding: 12px;
+            background: red;
+            color: white;
+        }
+
+        p {
+            color: #aaa;
+        }
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div>
+            <center>
+                <h1>SIGN UP</h1>
+            </center>
+            <form action="login.html">
+                <input type="text" name="" id="" placeholder="Name">
+                <br><br>
+                <input type="email" name="" id="" placeholder="Email id">
+                <br><br>
+                <input type="password" name="" id="" placeholder="Password">
+                <br><br>
+                <input type="password" name="" id="" placeholder="Confirm Password">
+                <br><br>
+                <center><button>Create Account</button></center>
+                <p>Already Have Account! <a href="login.html">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector("form");
+        const nameInput = form.querySelector("input[placeholder='Name']");
+        const emailInput = form.querySelector("input[placeholder='Email id']");
+        const passwordInput = form.querySelector("input[placeholder='Password']");
+        const confirmPasswordInput = form.querySelector("input[placeholder='Confirm Password']");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page reload
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            const confirmPassword = confirmPasswordInput.value.trim();
+
+            // Basic validation
+            if (name === "" || email === "" || password === "" || confirmPassword === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Save user data in localStorage
+            const user = {
+                name: name,
+                email: email,
+                password: password
+            };
+
+            localStorage.setItem("user", JSON.stringify(user));
+
+            alert("Account created successfully! Please log in.");
+            // Redirect to login page
+            window.location.href = "login.html";
+        });
+    </script>
+
+</body>
+
+</html>
